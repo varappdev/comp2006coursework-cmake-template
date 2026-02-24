@@ -18,3 +18,7 @@ add_executable(demos
 target_link_libraries(demos PRIVATE framework)
 
 target_include_directories(demos PRIVATE CourseworkBase/include/demos CourseworkBase/include/demos/advanced)
+
+add_custom_command(TARGET demos PRE_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_CURRENT_SOURCE_DIR}/CourseworkBase/resources ${CMAKE_CURRENT_BINARY_DIR}/resources)
